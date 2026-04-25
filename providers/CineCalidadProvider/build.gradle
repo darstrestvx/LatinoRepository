@@ -1,0 +1,15 @@
+version = 1
+
+cloudstream {
+    language = "es"
+    iconUrl = "https://cinecalidad.lol/favicon.ico"
+    apiName = "CineCalidad"
+    supportedTypes = setOf(
+        TvType.Movie,
+        TvType.TvSeries
+    )
+}
+
+dependencies {
+    implementation "com.github.recloudstream:cloudstream:pre-release"
+}
