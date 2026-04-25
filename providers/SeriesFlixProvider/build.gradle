@@ -1,4 +1,4 @@
-version = 1
+apply plugin: 'com.lagradost.cloudstream3.gradle'
 
 cloudstream {
     language = "es"
@@ -7,8 +7,4 @@ cloudstream {
     supportedTypes = setOf(
         TvType.TvSeries
     )
-}
-
-dependencies {
-    implementation "com.github.recloudstream:cloudstream:pre-release"
 }
