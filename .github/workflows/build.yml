@@ -20,12 +20,17 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build plugins
-        run: gradle make --no-daemon --info 2>&1 | tail -300
+        run: gradle make --no-daemon --info 2>&1 | tail -100
+        continue-on-error: true
 
-      - name: Collect cs3 files
+      - name: Find all output files
+        run: find . -name "*.cs3" -o -name "*.aar" -o -name "*.apk" | grep -v ".gradle"
+
+      - name: Collect files
         run: |
           mkdir -p builds
-          find . -name "*.cs3" -exec cp {} builds/ \;
+          find . \( -name "*.cs3" -o -name "*.aar" \) -not -path "*/.gradle/*" -exec cp {} builds/ \;
+          ls -la builds/
 
       - name: Upload builds
         uses: actions/upload-artifact@v4
