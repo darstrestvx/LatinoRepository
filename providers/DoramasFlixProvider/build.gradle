@@ -1,0 +1,15 @@
+version = 1
+
+cloudstream {
+    language = "es"
+    iconUrl = "https://doramasflix.in/favicon.ico"
+    apiName = "DoramasFlix"
+    supportedTypes = setOf(
+        TvType.TvSeries,
+        TvType.Movie
+    )
+}
+
+dependencies {
+    implementation "com.github.recloudstream:cloudstream:pre-release"
+}
