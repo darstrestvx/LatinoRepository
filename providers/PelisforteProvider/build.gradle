@@ -3,6 +3,6 @@ apply plugin: 'com.lagradost.cloudstream3.gradle'
 cloudstream {
     language = "es"
     iconUrl = "https://pelisforte.nu/favicon.ico"
-    name = "Pelisforte"
+    pluginClassName = "com.latino.PelisforteProvider"
     supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 }
