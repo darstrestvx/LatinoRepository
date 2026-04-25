@@ -20,20 +20,26 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build plugins
-        run: gradle make --no-daemon --info 2>&1 | tail -100
+        run: gradle assembleRelease --no-daemon
         continue-on-error: true
 
-      - name: Find all output files
-        run: find . -name "*.cs3" -o -name "*.aar" -o -name "*.apk" | grep -v ".gradle"
+      - name: Find all files
+        run: |
+          echo "=== Buscando archivos ==="
+          find . -type f \( -name "*.cs3" -o -name "*.aar" -o -name "*.zip" \) -not -path "*/.gradle/*" -not -path "*/cache/*"
+          echo "=== Directorios build ==="
+          find . -type d -name "build" -not -path "*/.gradle/*"
 
-      - name: Collect files
+      - name: Collect cs3 files
         run: |
           mkdir -p builds
-          find . \( -name "*.cs3" -o -name "*.aar" \) -not -path "*/.gradle/*" -exec cp {} builds/ \;
-          ls -la builds/
+          find . -name "*.cs3" -not -path "*/.gradle/*" -exec cp {} builds/ \;
+          find . -name "*.aar" -not -path "*/.gradle/*" -exec cp {} builds/ \;
+          ls -la builds/ || echo "No files found"
 
       - name: Upload builds
         uses: actions/upload-artifact@v4
         with:
           name: latino-plugins
           path: builds/
+          if-no-files-found: warn
