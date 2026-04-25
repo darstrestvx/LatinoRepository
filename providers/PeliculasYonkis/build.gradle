@@ -3,6 +3,6 @@ apply plugin: 'com.lagradost.cloudstream3.gradle'
 cloudstream {
     language = "es"
     iconUrl = "https://www.peliculasyonkis.com/favicon.ico"
-    name = "PeliculasYonkis"
+    pluginClassName = "com.latino.PeliculasYonkisProvider"
     supportedTypes = setOf(TvType.Movie)
 }
