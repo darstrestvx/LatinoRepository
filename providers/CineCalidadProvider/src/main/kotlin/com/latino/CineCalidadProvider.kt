@@ -59,7 +59,11 @@ class CineCalidadProvider : MainAPI() {
             val eps = mutableListOf<Episode>()
             doc.select(".se-c").forEachIndexed { sIdx, season ->
                 season.select("li a").forEachIndexed { eIdx, ep ->
-                    eps.add(Episode(ep.attr("abs:href"), ep.text(), sIdx + 1, eIdx + 1))
+                    eps.add(newEpisode(ep.attr("abs:href")) {
+    this.name = ep.text()
+    this.season = sIdx + 1
+    this.episode = eIdx + 1
+})
                 }
             }
             newTvSeriesLoadResponse(title, url, TvType.TvSeries, eps) {
