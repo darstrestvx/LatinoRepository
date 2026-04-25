@@ -1,0 +1,34 @@
+name: Build Latino Repository
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Build plugins
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: assembleRelease
+
+      - name: Push builds
+        run: |
+          mkdir -p builds
+          find . -name "*.cs3" -exec cp {} builds/ \;
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add builds/
+          git commit -m "Auto build plugins" || echo "Nothing to commit"
+          git push
