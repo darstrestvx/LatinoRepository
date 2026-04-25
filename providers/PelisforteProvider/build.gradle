@@ -24,6 +24,6 @@ android {
 
 dependencies {
     implementation "com.github.recloudstream.cloudstream:library:-SNAPSHOT"
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.3.0"
     implementation "org.jsoup:jsoup:1.18.3"
 }
