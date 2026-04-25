@@ -1,34 +1,20 @@
-name: Build Latino Repository
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.3.1"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+        classpath "com.github.recloudstream:gradle:-SNAPSHOT"
+    }
+}
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-
-      - name: Build with Gradle
-        run: gradle assembleRelease --no-daemon --stacktrace
-
-      - name: Collect cs3 files
-        run: |
-          mkdir -p builds
-          find . -name "*.cs3" -exec cp {} builds/ \;
-
-      - name: Upload builds
-        uses: actions/upload-artifact@v4
-        with:
-          name: latino-plugins
-          path: builds/
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+    }
+}
