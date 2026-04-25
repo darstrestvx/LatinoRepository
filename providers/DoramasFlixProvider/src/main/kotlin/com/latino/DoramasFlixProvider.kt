@@ -57,7 +57,10 @@ class DoramasFlixProvider : MainAPI() {
         return if (isSeries) {
             val eps = mutableListOf<Episode>()
             doc.select(".list-episode a").forEachIndexed { idx, ep ->
-                eps.add(Episode(ep.attr("abs:href"), ep.text(), episode = idx + 1))
+                eps.add(newEpisode(ep.attr("abs:href")) {
+                    this.name = ep.text()
+                    this.episode = idx + 1
+                })
             }
             newTvSeriesLoadResponse(title, url, TvType.TvSeries, eps) {
                 posterUrl = poster; plot = desc; this.year = year; this.tags = tags
