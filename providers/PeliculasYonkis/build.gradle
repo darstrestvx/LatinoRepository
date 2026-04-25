@@ -1,8 +1,22 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
 apply plugin: 'com.lagradost.cloudstream3.gradle'
 
 cloudstream {
-    language = "es"
-    iconUrl = "https://www.peliculasyonkis.com/favicon.ico"
-    pluginClassName = "com.latino.PeliculasYonkisProvider"
-    supportedTypes = setOf(TvType.Movie)
+    setRepo("https://github.com/Darstrestvx/LatinoRepository")
+}
+
+android {
+    namespace "com.latino.peliculasyonkis"
+    compileSdkVersion 35
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 35
+    }
+}
+
+dependencies {
+    implementation "com.github.recloudstream.cloudstream:library:-SNAPSHOT"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
+    implementation "org.jsoup:jsoup:1.18.3"
 }
