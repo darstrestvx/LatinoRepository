@@ -9,26 +9,26 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
-      - name: Setup Java
-        uses: actions/setup-java@v3
+      - uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Build plugins
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: assembleRelease
+      - name: Make gradlew executable
+        run: chmod +x gradlew
 
-      - name: Push builds
+      - name: Build with Gradle
+        run: ./gradlew assembleRelease --no-daemon --stacktrace
+
+      - name: Collect cs3 files
         run: |
           mkdir -p builds
           find . -name "*.cs3" -exec cp {} builds/ \;
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git add builds/
-          git commit -m "Auto build plugins" || echo "Nothing to commit"
-          git push
+
+      - name: Upload builds
+        uses: actions/upload-artifact@v3
+        with:
+          name: latino-plugins
+          path: builds/
