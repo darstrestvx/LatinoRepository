@@ -19,10 +19,12 @@ allprojects {
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+task make {
+    dependsOn subprojects.collect { 
+        it.tasks.matching { t -> t.name == "makePluginZip" } 
+    }
 }
 
-task make {
-    dependsOn subprojects.collect { it.tasks.matching { t -> t.name == "assembleRelease" } }
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
