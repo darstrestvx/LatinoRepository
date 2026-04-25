@@ -1,0 +1,14 @@
+version = 1
+
+cloudstream {
+    language = "es"
+    iconUrl = "https://seriesflix.video/favicon.ico"
+    apiName = "SeriesFlix"
+    supportedTypes = setOf(
+        TvType.TvSeries
+    )
+}
+
+dependencies {
+    implementation "com.github.recloudstream:cloudstream:pre-release"
+}
