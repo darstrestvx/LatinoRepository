@@ -3,8 +3,6 @@ apply plugin: 'com.lagradost.cloudstream3.gradle'
 cloudstream {
     language = "es"
     iconUrl = "https://seriesflix.video/favicon.ico"
-    apiName = "SeriesFlix"
-    supportedTypes = setOf(
-        TvType.TvSeries
-    )
+    name = "SeriesFlix"
+    supportedTypes = setOf(TvType.TvSeries)
 }
