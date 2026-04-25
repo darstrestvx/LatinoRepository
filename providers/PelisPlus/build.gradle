@@ -2,11 +2,10 @@ apply plugin: 'com.lagradost.cloudstream3.gradle'
 
 cloudstream {
     language = "es"
-    iconUrl = "https://pelisplus.app/favicon.ico"
-    apiName = "PelisPlus"
+    iconUrl = "https://repelis.net/favicon.ico"
+    apiName = "Repelis"
     supportedTypes = setOf(
         TvType.Movie,
-        TvType.TvSeries,
-        TvType.Anime
+        TvType.TvSeries
     )
 }
