@@ -1,0 +1,15 @@
+version = 1
+
+cloudstream {
+    language = "es"
+    iconUrl = "https://pelisforte.nu/favicon.ico"
+    apiName = "Pelisforte"
+    supportedTypes = setOf(
+        TvType.Movie,
+        TvType.TvSeries
+    )
+}
+
+dependencies {
+    implementation "com.github.recloudstream:cloudstream:pre-release"
+}
