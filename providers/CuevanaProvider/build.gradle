@@ -3,6 +3,6 @@ apply plugin: 'com.lagradost.cloudstream3.gradle'
 cloudstream {
     language = "es"
     iconUrl = "https://cuevana3.io/favicon.ico"
-    name = "Cuevana"
+    pluginClassName = "com.latino.CuevanaProvider"
     supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 }
