@@ -5,9 +5,9 @@ buildscript {
         maven { url "https://jitpack.io" }
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:7.3.1"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0"
+        classpath "com.android.tools.build:gradle:8.7.3"
         classpath "com.github.recloudstream:gradle:-SNAPSHOT"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.0"
     }
 }
 
@@ -19,10 +19,10 @@ allprojects {
     }
 }
 
-task make {
-    dependsOn subprojects.collect { it.tasks.matching { task -> task.name == "assembleRelease" } }
-}
-
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+task make {
+    dependsOn subprojects.collect { it.tasks.matching { t -> t.name == "assembleRelease" } }
 }
