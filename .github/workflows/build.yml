@@ -20,7 +20,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v3
 
       - name: Build plugins
-        run: gradle make --no-daemon --stacktrace
+        run: gradle make --no-daemon --info 2>&1 | tail -300
 
       - name: Collect cs3 files
         run: |
