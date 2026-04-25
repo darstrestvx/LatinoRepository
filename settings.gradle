@@ -1,0 +1,21 @@
+rootProject.name = "LatinoRepository"
+
+include(
+    ":PelisPlus",
+    ":CuevanaProvider",
+    ":PeliculasYonkis",
+    ":RepelisPlus",
+    ":SeriesFlixProvider",
+    ":DoramasFlixProvider",
+    ":PelisforteProvider",
+    ":CineCalidadProvider"
+)
+
+project(":PelisPlus").projectDir      = file("providers/PelisPlus")
+project(":CuevanaProvider").projectDir = file("providers/CuevanaProvider")
+project(":PeliculasYonkis").projectDir = file("providers/PeliculasYonkis")
+project(":RepelisPlus").projectDir     = file("providers/RepelisPlus")
+project(":SeriesFlixProvider").projectDir  = file("providers/SeriesFlixProvider")
+project(":DoramasFlixProvider").projectDir = file("providers/DoramasFlixProvider")
+project(":PelisforteProvider").projectDir  = file("providers/PelisforteProvider")
+project(":CineCalidadProvider").projectDir = file("providers/CineCalidadProvider")
