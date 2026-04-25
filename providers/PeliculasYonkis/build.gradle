@@ -1,0 +1,14 @@
+version = 1
+
+cloudstream {
+    language = "es"
+    iconUrl = "https://www.peliculasyonkis.com/favicon.ico"
+    apiName = "PeliculasYonkis"
+    supportedTypes = setOf(
+        TvType.Movie
+    )
+}
+
+dependencies {
+    implementation "com.github.recloudstream:cloudstream:pre-release"
+}
