@@ -18,3 +18,11 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 }
+
+task make {
+    dependsOn subprojects.collect { it.tasks.matching { task -> task.name == "assembleRelease" } }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
