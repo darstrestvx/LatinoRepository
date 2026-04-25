@@ -7,7 +7,7 @@ cloudstream {
 }
 
 android {
-    namespace "com.latino.pelisplus"
+    namespace "com.latino.repelis"
     compileSdkVersion 35
     defaultConfig {
         minSdkVersion 21
