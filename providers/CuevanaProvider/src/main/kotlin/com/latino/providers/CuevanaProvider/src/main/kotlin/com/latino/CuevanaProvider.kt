@@ -55,7 +55,10 @@ class CuevanaProvider : MainAPI() {
         val isSeries = url.contains("/serie/")
         return if (isSeries) {
             val eps = doc.select(".TPostMv").mapIndexed { idx, ep ->
-                Episode(ep.selectFirst("a")?.attr("abs:href") ?: "", ep.selectFirst("h4")?.text(), episode = idx + 1)
+                newEpisode(ep.selectFirst("a")?.attr("abs:href") ?: "") {
+                    this.name = ep.selectFirst("h4")?.text()
+                    this.episode = idx + 1
+                }
             }
             newTvSeriesLoadResponse(title, url, TvType.TvSeries, eps) {
                 posterUrl = poster; plot = desc; this.year = year; this.tags = tags
