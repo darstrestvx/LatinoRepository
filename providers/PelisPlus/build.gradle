@@ -1,0 +1,16 @@
+version = 1
+
+cloudstream {
+    language = "es"
+    iconUrl = "https://pelisplus.app/favicon.ico"
+    apiName = "PelisPlus"
+    supportedTypes = setOf(
+        TvType.Movie,
+        TvType.TvSeries,
+        TvType.Anime
+    )
+}
+
+dependencies {
+    implementation "com.github.recloudstream:cloudstream:pre-release"
+}
