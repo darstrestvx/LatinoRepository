@@ -3,9 +3,6 @@ apply plugin: 'com.lagradost.cloudstream3.gradle'
 cloudstream {
     language = "es"
     iconUrl = "https://cinecalidad.lol/favicon.ico"
-    apiName = "CineCalidad"
-    supportedTypes = setOf(
-        TvType.Movie,
-        TvType.TvSeries
-    )
+    name = "CineCalidad"
+    supportedTypes = setOf(TvType.Movie, TvType.TvSeries)
 }
