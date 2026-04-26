@@ -1,0 +1,8 @@
+{
+  "name": "Latino Repository",
+  "description": "Repositorio Latino",
+  "manifestVersion": 1,
+  "pluginLists": [
+    "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/plugins.json"
+  ]
+}
