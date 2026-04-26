@@ -1,7 +1,7 @@
 {
   "name": "Latino Repository",
   "description": "Repositorio Latino",
-  "manifestVersion": 1,
+  "manifestVersion": 2,
   "plugins": [
     {
       "url": "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/builds/CineCalidadProvider-release.cs3",
