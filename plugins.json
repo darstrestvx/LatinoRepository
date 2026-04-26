@@ -1,9 +1,70 @@
 {
   "name": "Latino Repository",
-  "description": "Repositorio de contenido en español",
+  "description": "Repositorio de contenido en español para CloudStream 3",
   "manifestVersion": 2,
   "pluginLists": [
     "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/plugins.json"
   ],
-  "plugins": []
+  "plugins": [
+    {
+      "url": "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/builds/CineCalidadProvider-release.cs3",
+      "status": 1,
+      "version": 1,
+      "iconUrl": "https://cinecalidad.lol/favicon.ico",
+      "apiVersion": 5,
+      "repositoryUrl": "https://github.com/Darstrestvx/LatinoRepository",
+      "name": "CineCalidad",
+      "internalName": "CineCalidadProvider",
+      "authors": ["Darstrestvx"],
+      "description": "Películas y Series en 4K y HD",
+      "language": "es",
+      "tvTypes": ["Movie", "TvSeries"],
+      "isAdult": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/builds/CuevanaProvider-release.cs3",
+      "status": 1,
+      "version": 1,
+      "iconUrl": "https://cuevana3.io/favicon.ico",
+      "apiVersion": 5,
+      "repositoryUrl": "https://github.com/Darstrestvx/LatinoRepository",
+      "name": "Cuevana",
+      "internalName": "CuevanaProvider",
+      "authors": ["Darstrestvx"],
+      "description": "El clásico Cuevana en Español Latino",
+      "language": "es",
+      "tvTypes": ["Movie", "TvSeries"],
+      "isAdult": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/builds/DoramasFlixProvider-release.cs3",
+      "status": 1,
+      "version": 1,
+      "iconUrl": "https://doramasflix.in/favicon.ico",
+      "apiVersion": 5,
+      "repositoryUrl": "https://github.com/Darstrestvx/LatinoRepository",
+      "name": "DoramasFlix",
+      "internalName": "DoramasFlixProvider",
+      "authors": ["Darstrestvx"],
+      "description": "Doramas Coreanos, Chinos y Japoneses",
+      "language": "es",
+      "tvTypes": ["TvSeries", "Movie"],
+      "isAdult": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/builds/PeliculasYonkis-release.cs3",
+      "status": 1,
+      "version": 1,
+      "iconUrl": "https://www.peliculasyonkis.com/favicon.ico",
+      "apiVersion": 5,
+      "repositoryUrl": "https://github.com/Darstrestvx/LatinoRepository",
+      "name": "PeliculasYonkis",
+      "internalName": "PeliculasYonkis",
+      "authors": ["Darstrestvx"],
+      "description": "El clásico renovado, películas en español",
+      "language": "es",
+      "tvTypes": ["Movie"],
+      "isAdult": false
+    }
+  ]
 }
