@@ -54,12 +54,11 @@ class SeriesFlixProvider : MainAPI() {
         val eps    = mutableListOf<Episode>()
         doc.select(".se-c").forEachIndexed { sIdx, season ->
             season.select("li a").forEachIndexed { eIdx, ep ->
-                eps.add(Episode(
-                    data    = ep.attr("abs:href"),
-                    name    = ep.selectFirst(".epst")?.text() ?: "Episodio ${eIdx + 1}",
-                    season  = sIdx + 1,
-                    episode = eIdx + 1
-                ))
+                eps.add(newEpisode(ep.attr("abs:href")) {
+                    this.name = ep.selectFirst(".epst")?.text() ?: "Episodio ${eIdx + 1}"
+                    this.season = sIdx + 1
+                    this.episode = eIdx + 1
+                })
             }
         }
         return newTvSeriesLoadResponse(title, url, TvType.TvSeries, eps) {
