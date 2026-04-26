@@ -57,7 +57,11 @@ class PelisforteProvider : MainAPI() {
             val eps = mutableListOf<Episode>()
             doc.select(".SeasonBx").forEachIndexed { s, season ->
                 season.select("li a").forEachIndexed { e, ep ->
-                    eps.add(Episode(ep.attr("abs:href"), ep.text(), s + 1, e + 1))
+                    eps.add(newEpisode(ep.attr("abs:href")) {
+                        this.name = ep.text()
+                        this.season = s + 1
+                        this.episode = e + 1
+                    })
                 }
             }
             newTvSeriesLoadResponse(title, url, TvType.TvSeries, eps) {
