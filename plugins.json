@@ -1,10 +1,7 @@
 {
   "name": "Latino Repository",
-  "description": "Repositorio de contenido en español para CloudStream 3",
-  "manifestVersion": 2,
-  "pluginLists": [
-    "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/plugins.json"
-  ],
+  "description": "Repositorio Latino",
+  "manifestVersion": 1,
   "plugins": [
     {
       "url": "https://raw.githubusercontent.com/Darstrestvx/LatinoRepository/main/builds/CineCalidadProvider-release.cs3",
@@ -49,7 +46,7 @@
       "name": "DoramasFlix",
       "internalName": "DoramasFlixProvider",
       "authors": ["Darstrestvx"],
-      "description": "Doramas Coreanos, Chinos y Japoneses",
+      "description": "Doramas en Español",
       "language": "es",
       "tvTypes": ["TvSeries", "Movie"],
       "isAdult": false
@@ -65,7 +62,7 @@
       "name": "PeliculasYonkis",
       "internalName": "PeliculasYonkis",
       "authors": ["Darstrestvx"],
-      "description": "El clásico renovado, películas en español",
+      "description": "Películas en español",
       "language": "es",
       "tvTypes": ["Movie"],
       "isAdult": false
